@@ -16,7 +16,11 @@ const Detail = () : ReactElement => {
     useEffect(() => {
         axios
             .get('/game?id=' + id, { 
-                baseURL: 'https://www.freetogame.com/api/games'
+                baseURL: 'https://free-to-play-games-database.p.rapidapi.com/api/',
+                headers: {
+                    'X-RapidAPI-Key': '497fcac2c4msh754321af8902e3dp191447jsn2ff3077fcb90',
+                    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+                }
             })
             .then(res => setGame(res.data))
             .catch(e => setError(e.message))
