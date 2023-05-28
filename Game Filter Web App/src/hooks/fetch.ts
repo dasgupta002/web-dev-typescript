@@ -17,12 +17,16 @@ const useFetch = (params: Filter) : Response => {
     useEffect(() => {
         axios
             .get('/games', { 
-                baseURL: 'https://www.freetogame.com/api/games', 
+                baseURL: 'https://free-to-play-games-database.p.rapidapi.com/api/', 
                 params: { 
                     platform,
                     category: genre,
                     tag,
                     'sort-by': sort
+                },
+                headers: {
+                    'X-RapidAPI-Key': '497fcac2c4msh754321af8902e3dp191447jsn2ff3077fcb90',
+                    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
                 }
             })
             .then(res => setGames(res.data))
